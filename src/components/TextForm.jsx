@@ -11,28 +11,35 @@ export default function TextForm(props) {
         // console.log("Enter Your Text");
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("UpperCase Text", "success");
     }
     const handleLoChange = () =>{
         // consol.log("Btn Click");
         var newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("LowerCase Text", "success");
     }
     const handleSpeak = () =>{
         var newText = new SpeechSynthesisUtterance();
         newText.text=text;
         window.speechSynthesis.speak(newText);
+
     }
     const handleClear = () =>{
-        setText('');    
+        setText(''); 
+        props.showAlert("Text Field Empty", "success");   
     }
     const handleCopy = () => {
-        let newText = document.getElementById('exampleFormControlTextarea1');
-        newText.select();
-        navigator.clipboard.writeText(newText.value);
+        // let newText = document.getElementById('exampleFormControlTextarea1');
+        // newText.select();
+        navigator.clipboard.writeText(text);
+        props.showAlert("Copy Text", "success");
     }
     const handleRemoveSpace = () =>{
         let newText = text.split(/[ ] + /);
         setText(newText.join(" "));
+        props.showAlert("Remove Extra space", "success")
+
     }
   return (
     <>
@@ -49,11 +56,11 @@ export default function TextForm(props) {
     </div>
     <div className='container'>
         <h2>Text Summary</h2>
-        <p>{text.split(" ").filter((element)=>{return element.length !== 0}).length} Words</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length !== 0}).length} Words</p>
         <p>{text.length} Characters</p>
         <h5>{0.005*text.split(" ").filter((element)=>{return element.length !== 0}).length} Reading Time</h5>
         <h3>Priview</h3>
-        <p>{text}</p>
+        <p>{text.length>0 ? text : "Nothing to Preview !"}</p>
     </div>
     </div>
     </>

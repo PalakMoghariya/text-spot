@@ -28,26 +28,29 @@ function App() {
       document.body.style.color='white';
       newbtnText("Enable Light Mode");
       showAlert("Dark Mode has Been Enable", "success");
-      setInterval(() => {
-        document.title = 'Tech-Mechanic';
-      }, 2000);
-      setInterval(() => {
-        document.title = 'B.sc IT';
-      }, 1500);
+      // document.title = "Dark Mode";
+
+      // setInterval(() => {
+      //   document.title = 'Tech-Mechanic';
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = 'B.sc IT';
+      // }, 1500);
     } else {
       setMode('light');
       document.body.style.background='white';
       document.body.style.color='black';
       newbtnText("Enable Dark Mode");
       showAlert("Light Mode has Been Enable", "success");
+      // document.title = "Dark Mode";
     }
   }
 
   return (
     <>
-      <Navbar title="GIT" mode={mode} toggleMode={toggleMode} btntext={btnText}/>
+      <Navbar title="Text Mechanical" mode={mode} toggleMode={toggleMode} btntext={btnText}/>
       <Alert alert={alert}/>
-      <TextForm heading = "Enter your Text Here" toggleMode={toggleMode} mode={mode} showAlert={showAlert} />
+      <TextForm heading = "Repair Your Text Here" toggleMode={toggleMode} mode={mode} showAlert={showAlert} />
     </>
   );
 }
