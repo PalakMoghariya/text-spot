@@ -29,7 +29,7 @@ function App() {
       newbtnText("Enable Light Mode");
       showAlert("Dark Mode has Been Enable", "success");
       setInterval(() => {
-        document.title = 'SIT - Admmision';
+        document.title = 'Tech-Mechanic';
       }, 2000);
       setInterval(() => {
         document.title = 'B.sc IT';
